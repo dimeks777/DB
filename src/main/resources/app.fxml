@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1800.0" style="-fx-background-color: #002A32;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="computershop.graphics.AppController">
+    <children>
+        <AnchorPane layoutX="374.0" layoutY="313.0" prefHeight="649.0" prefWidth="1425.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <VBox layoutX="-170.0" layoutY="-118.0" prefHeight="764.0" prefWidth="1595.0">
+               <children>
+                  <TableView fx:id="table" prefHeight="764.0" prefWidth="1596.0">
+                    <columns>
+                      <TableColumn fx:id="productIdColumn" prefWidth="174.0" text="product_id" />
+                      <TableColumn fx:id="categoryNameColumn" prefWidth="228.0" text="category_name" />
+                        <TableColumn fx:id="productNameColumn" prefWidth="229.0" text="product_name" />
+                        <TableColumn fx:id="costColumn" minWidth="0.0" prefWidth="100.0" text="cost" />
+                        <TableColumn fx:id="descriptionColumn" prefWidth="622.0" text="description">
+                           <columns>
+                              <TableColumn fx:id="maintainerColumn" prefWidth="175.0" text="maintainer" />
+                              <TableColumn fx:id="characteristicsColumn" prefWidth="300.0" text="characteristics" />
+                           </columns></TableColumn>
+                        <TableColumn fx:id="warehouseAddressColumn" prefWidth="386.0" text="warehouse_address" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+      <Button fx:id="clearButton" layoutX="353.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Clear">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="removeButton" layoutX="353.0" layoutY="71.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Remove" />
+      <Label layoutX="749.0" layoutY="21.0" text="Search" textFill="#02ff02">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="categorySearchPredicateField" disable="true" layoutX="900.0" layoutY="63.0" prefHeight="31.0" prefWidth="138.0" promptText="Search predicate" style="-fx-background-color: WHITE;" />
+      <Button fx:id="resetButton" layoutX="536.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Reset">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="353.0" layoutY="25.0" prefHeight="34.0" prefWidth="149.0" text="Modify db" textFill="#4dff00">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="categoryNameSearchBtn" layoutX="749.0" layoutY="67.0" mnemonicParsing="false" text="By category name" textFill="LIME" />
+      <CheckBox fx:id="costSearchBtn" layoutX="749.0" layoutY="106.0" mnemonicParsing="false" text="By cost" textFill="#00f743" />
+      <TextField fx:id="costSearchPredicateField" disable="true" layoutX="900.0" layoutY="99.0" prefHeight="31.0" prefWidth="138.0" promptText="Enter range" style="-fx-background-color: WHITE;" />
+      <Label layoutX="14.0" layoutY="33.0" prefHeight="130.0" prefWidth="317.0" text="Select category" textFill="#2bff00">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="psCategory" layoutX="14.0" layoutY="550.0" mnemonicParsing="false" text="Power_Supply" textFill="#50ff00" />
+      <CheckBox fx:id="mbCategory" layoutX="14.0" layoutY="500.0" mnemonicParsing="false" text="Motherboard" textFill="#50ff00" />
+      <CheckBox fx:id="cpuCategory" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" text="CPU" textFill="#50ff00" />
+      <CheckBox fx:id="gpuCategory" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" text="GPU" textFill="#50ff00" />
+      <CheckBox fx:id="ramCategory" layoutX="14.0" layoutY="450.0" mnemonicParsing="false" text="RAM" textFill="#50ff00" />
+      <CheckBox fx:id="monitorCategory" layoutX="14.0" layoutY="300.0" mnemonicParsing="false" text="Monitor" textFill="#50ff00" />
+      <CheckBox fx:id="laptopCategory" layoutX="14.0" layoutY="250.0" mnemonicParsing="false" text="Laptop" textFill="#50ff00" />
+      <CheckBox fx:id="computerCategory" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" text="Computer" textFill="#50ff00" />
+      <CheckBox fx:id="selectAllBtn" layoutX="14.0" layoutY="650.0" mnemonicParsing="false" text="SELECT ALL" textFill="LIME" />
+      <Button fx:id="getListButton" layoutX="13.0" layoutY="697.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="130.0" style="-fx-background-color: lime;" text="Get product list">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="loadDefaultDataButton" layoutX="536.0" layoutY="71.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Init tables" />
+      <Button fx:id="searchButton" layoutX="749.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Search">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
