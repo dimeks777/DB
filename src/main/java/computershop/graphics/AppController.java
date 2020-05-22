@@ -59,10 +59,10 @@ public class AppController {
     private Button removeButton;
 
     @FXML
-    private CheckBox categoryNameSearchBtn;
+    private TextField shopCityNameSearchPredicateField;
 
     @FXML
-    private TextField categorySearchPredicateField;
+    private CheckBox shopCityNameSearchBtn;
 
     @FXML
     private CheckBox costSearchBtn;
@@ -108,7 +108,7 @@ public class AppController {
 
     public static boolean confirm = false;
 
-    private boolean categoryNameSearch = false;
+    private boolean shopCityNameSearch = false;
     private boolean costSearch = false;
 
     @FXML
@@ -215,7 +215,11 @@ public class AppController {
             }
 
             Collections.clearAll();
-            Collections.addAll(Queries.getListByCriteria(categories));
+            if (categories.size() > 0) {
+                Collections.addAll(Queries.getListByCriteria(categories));
+            } else {
+                Warning.showWarnWithHeaderText("No categories selected");
+            }
         });
 
         selectAllBtn.setOnAction(actionEvent -> {
@@ -281,22 +285,22 @@ public class AppController {
         resetButton.setOnAction(actionEvent -> {
             Collections.productsObservableList.clear();
             Collections.productsObservableList.addAll(Collections.productsList);
-            categorySearchPredicateField.clear();
-            categorySearchPredicateField.setDisable(true);
+            shopCityNameSearchPredicateField.clear();
+            shopCityNameSearchPredicateField.setDisable(true);
             costSearchPredicateField.clear();
             costSearchPredicateField.setDisable(true);
-            categoryNameSearchBtn.setSelected(false);
+            shopCityNameSearchBtn.setSelected(false);
             costSearchBtn.setSelected(false);
         });
 
-        categoryNameSearchBtn.setOnAction(actionEvent -> {
-            if (categoryNameSearchBtn.isSelected()) {
-                categorySearchPredicateField.setDisable(false);
-                categoryNameSearch = true;
+        shopCityNameSearchBtn.setOnAction(actionEvent -> {
+            if (shopCityNameSearchBtn.isSelected()) {
+                shopCityNameSearchPredicateField.setDisable(false);
+                shopCityNameSearch = true;
             } else {
-                categorySearchPredicateField.clear();
-                categorySearchPredicateField.setDisable(true);
-                categoryNameSearch = false;
+                shopCityNameSearchPredicateField.clear();
+                shopCityNameSearchPredicateField.setDisable(true);
+                shopCityNameSearch = false;
             }
 
         });
@@ -313,38 +317,50 @@ public class AppController {
         });
 
         searchButton.setOnAction(actionEvent -> {
+            if (Collections.productsObservableList.size() != 0) {
 
-            if (!categoryNameSearch && !costSearch) {
-                Warning.showWarnWithHeaderText("No criteria selected");
-            } else {
-                ObservableList<Product> tempProductsObservableList = FXCollections.observableArrayList();
-                ObservableList<Product> tempProductsObservableList1 = FXCollections.observableArrayList();
-                ObservableList<Product> tempProductsObservableList2 = FXCollections.observableArrayList();
+                if (!shopCityNameSearch && !costSearch) {
+                    Warning.showWarnWithHeaderText("No criteria selected");
+                } else {
+                    ObservableList<Product> tempProductsObservableList = FXCollections.observableArrayList();
+                    ObservableList<Product> tempProductsObservableList1 = FXCollections.observableArrayList();
+                    ObservableList<Product> tempProductsObservableList2 = FXCollections.observableArrayList();
 
-                tempProductsObservableList.addAll(Collections.productsObservableList);
-                Collections.productsObservableList.clear();
+                    tempProductsObservableList.addAll(Collections.productsObservableList);
+                    Collections.productsObservableList.clear();
 
-                if (categoryNameSearch) {
-                    tempProductsObservableList1.addAll(tempProductsObservableList.stream()
-                            .filter(e -> e.getCategoryName().equalsIgnoreCase(categorySearchPredicateField.getText()))
-                            .collect(Collectors.toList()));
-                    tempProductsObservableList.clear();
+                    if (shopCityNameSearch) {
+                        for (Product product : tempProductsObservableList) {
+                            if (product.getAddresses() != null) {
+                                String[] addresses = product.getAddresses().split("\n");
+                                for (String address : addresses) {
+                                    String[] addr = address.split(",");
+                                    if (shopCityNameSearchPredicateField.getText().trim().equalsIgnoreCase(addr[0].trim())) {
+                                        tempProductsObservableList1.add(product);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
 
-                    if (costSearch) {
-                        costSearchFilter(tempProductsObservableList1, tempProductsObservableList2);
+                        if (costSearch) {
+                            costSearchFilter(tempProductsObservableList1, tempProductsObservableList2);
 
-                        tempProductsObservableList1.clear();
-                        Collections.productsObservableList.addAll(tempProductsObservableList2);
-                    } else {
+                            tempProductsObservableList1.clear();
+                            Collections.productsObservableList.addAll(tempProductsObservableList2);
+                        } else {
+                            Collections.productsObservableList.addAll(tempProductsObservableList1);
+                        }
+
+                    } else if (costSearch) {
+                        costSearchFilter(tempProductsObservableList, tempProductsObservableList1);
+                        tempProductsObservableList.clear();
                         Collections.productsObservableList.addAll(tempProductsObservableList1);
+                        System.out.println(Collections.productsObservableList);
                     }
-
-                } else if (costSearch) {
-                    costSearchFilter(tempProductsObservableList, tempProductsObservableList1);
-                    tempProductsObservableList.clear();
-                    Collections.productsObservableList.addAll(tempProductsObservableList1);
-                    System.out.println(Collections.productsObservableList);
                 }
+            } else {
+                Warning.showWarnWithHeaderText("Empty selection");
             }
 
         });

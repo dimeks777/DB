@@ -47,7 +47,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="categorySearchPredicateField" disable="true" layoutX="900.0" layoutY="63.0" prefHeight="31.0" prefWidth="138.0" promptText="Search predicate" style="-fx-background-color: WHITE;" />
+      <TextField fx:id="shopCityNameSearchPredicateField" disable="true" layoutX="900.0" layoutY="63.0" prefHeight="31.0" prefWidth="138.0" promptText="Search predicate" style="-fx-background-color: WHITE;" />
       <Button fx:id="resetButton" layoutX="536.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #F39C63;" text="Reset" textFill="WHITE">
          <font>
             <Font name="Arial" size="14.0" />
@@ -58,7 +58,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <CheckBox fx:id="categoryNameSearchBtn" layoutX="749.0" layoutY="67.0" mnemonicParsing="false" text="By category name" textFill="WHITE" />
+      <CheckBox fx:id="shopCityNameSearchBtn" layoutX="749.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="97.0" text="By shop city" textFill="WHITE" />
       <CheckBox fx:id="costSearchBtn" layoutX="749.0" layoutY="106.0" mnemonicParsing="false" text="By cost" textFill="WHITE" />
       <TextField fx:id="costSearchPredicateField" disable="true" layoutX="900.0" layoutY="99.0" prefHeight="31.0" prefWidth="138.0" promptText="Enter range" style="-fx-background-color: WHITE;" />
       <Label layoutX="13.0" layoutY="66.0" prefHeight="128.0" prefWidth="317.0" text="Product categories" textFill="WHITE">
@@ -66,10 +66,10 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <CheckBox fx:id="psCategory" layoutX="14.0" layoutY="410.0" mnemonicParsing="false" text="Power Supply" textFill="WHITE" />
-      <CheckBox fx:id="mbCategory" layoutX="14.0" layoutY="380.0" mnemonicParsing="false" text="Motherboard" textFill="WHITE" />
+      <CheckBox fx:id="psCategory" layoutX="14.0" layoutY="410.0" mnemonicParsing="false" text="Power Supplies" textFill="WHITE" />
+      <CheckBox fx:id="mbCategory" layoutX="14.0" layoutY="380.0" mnemonicParsing="false" text="Motherboards" textFill="WHITE" />
       <CheckBox fx:id="cpuCategory" layoutX="14.0" layoutY="290.0" mnemonicParsing="false" text="CPUs" textFill="WHITE" />
-      <CheckBox fx:id="gpuCategory" layoutX="14.0" layoutY="320.0" mnemonicParsing="false" text="GPU" textFill="WHITE" />
+      <CheckBox fx:id="gpuCategory" layoutX="14.0" layoutY="320.0" mnemonicParsing="false" text="GPUs" textFill="WHITE" />
       <CheckBox fx:id="ramCategory" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" text="RAM" textFill="WHITE" />
       <CheckBox fx:id="monitorCategory" layoutX="14.0" layoutY="260.0" mnemonicParsing="false" text="Monitors" textFill="WHITE" />
       <CheckBox fx:id="laptopCategory" layoutX="14.0" layoutY="230.0" mnemonicParsing="false" text="Laptops" textFill="WHITE" />
