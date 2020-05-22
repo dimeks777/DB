@@ -285,10 +285,10 @@ public class AppController {
 
         categoryNameSearchBtn.setOnAction(actionEvent -> {
             if (categoryNameSearchBtn.isSelected()) {
-                costSearchPredicateField.setDisable(false);
+                categorySearchPredicateField.setDisable(false);
                 categoryNameSearch = true;
             } else {
-                costSearchPredicateField.setDisable(true);
+                categorySearchPredicateField.setDisable(true);
                 categoryNameSearch = false;
             }
 
