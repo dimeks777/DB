@@ -281,6 +281,12 @@ public class AppController {
         resetButton.setOnAction(actionEvent -> {
             Collections.productsObservableList.clear();
             Collections.productsObservableList.addAll(Collections.productsList);
+            categorySearchPredicateField.clear();
+            categorySearchPredicateField.setDisable(true);
+            costSearchPredicateField.clear();
+            costSearchPredicateField.setDisable(true);
+            categoryNameSearchBtn.setSelected(false);
+            costSearchBtn.setSelected(false);
         });
 
         categoryNameSearchBtn.setOnAction(actionEvent -> {
@@ -288,6 +294,7 @@ public class AppController {
                 categorySearchPredicateField.setDisable(false);
                 categoryNameSearch = true;
             } else {
+                categorySearchPredicateField.clear();
                 categorySearchPredicateField.setDisable(true);
                 categoryNameSearch = false;
             }
@@ -299,6 +306,7 @@ public class AppController {
                 costSearchPredicateField.setDisable(false);
                 costSearch = true;
             } else {
+                costSearchPredicateField.clear();
                 costSearchPredicateField.setDisable(true);
                 costSearch = false;
             }
@@ -306,34 +314,37 @@ public class AppController {
 
         searchButton.setOnAction(actionEvent -> {
 
+            if (!categoryNameSearch && !costSearch) {
+                Warning.showWarnWithHeaderText("No criteria selected");
+            } else {
+                ObservableList<Product> tempProductsObservableList = FXCollections.observableArrayList();
+                ObservableList<Product> tempProductsObservableList1 = FXCollections.observableArrayList();
+                ObservableList<Product> tempProductsObservableList2 = FXCollections.observableArrayList();
 
-            ObservableList<Product> tempProductsObservableList = FXCollections.observableArrayList();
-            ObservableList<Product> tempProductsObservableList1 = FXCollections.observableArrayList();
-            ObservableList<Product> tempProductsObservableList2 = FXCollections.observableArrayList();
+                tempProductsObservableList.addAll(Collections.productsObservableList);
+                Collections.productsObservableList.clear();
 
-            tempProductsObservableList.addAll(Collections.productsObservableList);
-            Collections.productsObservableList.clear();
+                if (categoryNameSearch) {
+                    tempProductsObservableList1.addAll(tempProductsObservableList.stream()
+                            .filter(e -> e.getCategoryName().equalsIgnoreCase(categorySearchPredicateField.getText()))
+                            .collect(Collectors.toList()));
+                    tempProductsObservableList.clear();
 
-            if (categoryNameSearch) {
-                tempProductsObservableList1.addAll(tempProductsObservableList.stream()
-                        .filter(e -> e.getCategoryName().equalsIgnoreCase(categorySearchPredicateField.getText()))
-                        .collect(Collectors.toList()));
-                tempProductsObservableList.clear();
+                    if (costSearch) {
+                        costSearchFilter(tempProductsObservableList1, tempProductsObservableList2);
 
-                if (costSearch) {
-                    costSearchFilter(tempProductsObservableList1, tempProductsObservableList2);
+                        tempProductsObservableList1.clear();
+                        Collections.productsObservableList.addAll(tempProductsObservableList2);
+                    } else {
+                        Collections.productsObservableList.addAll(tempProductsObservableList1);
+                    }
 
-                    tempProductsObservableList1.clear();
-                    Collections.productsObservableList.addAll(tempProductsObservableList2);
-                } else {
+                } else if (costSearch) {
+                    costSearchFilter(tempProductsObservableList, tempProductsObservableList1);
+                    tempProductsObservableList.clear();
                     Collections.productsObservableList.addAll(tempProductsObservableList1);
+                    System.out.println(Collections.productsObservableList);
                 }
-
-            } else if (costSearch) {
-                costSearchFilter(tempProductsObservableList, tempProductsObservableList1);
-
-                tempProductsObservableList.clear();
-                Collections.productsObservableList.addAll(tempProductsObservableList1);
             }
 
         });

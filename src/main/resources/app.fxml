@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1800.0" style="-fx-background-color: #002A32;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="computershop.graphics.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1800.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="computershop.graphics.AppController">
     <children>
         <AnchorPane layoutX="374.0" layoutY="313.0" prefHeight="649.0" prefWidth="1425.0" style="-fx-background-color: #fafafa;">
          <children>
@@ -33,55 +33,66 @@
                </children>
             </VBox>
          </children></AnchorPane>
-      <Button fx:id="clearButton" layoutX="353.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Clear">
+      <Button fx:id="clearButton" layoutX="353.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #F39C63;" text="Clear" textFill="WHITE">
          <font>
-            <Font name="Arial" size="12.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="removeButton" layoutX="353.0" layoutY="71.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Remove" />
-      <Label layoutX="749.0" layoutY="21.0" text="Search" textFill="#02ff02">
+      <Button fx:id="removeButton" layoutX="353.0" layoutY="71.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #F39C63;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
+      <Label layoutX="749.0" layoutY="21.0" text="Search" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
       <TextField fx:id="categorySearchPredicateField" disable="true" layoutX="900.0" layoutY="63.0" prefHeight="31.0" prefWidth="138.0" promptText="Search predicate" style="-fx-background-color: WHITE;" />
-      <Button fx:id="resetButton" layoutX="536.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Reset">
+      <Button fx:id="resetButton" layoutX="536.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #F39C63;" text="Reset" textFill="WHITE">
          <font>
-            <Font name="Arial" size="12.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="353.0" layoutY="25.0" prefHeight="34.0" prefWidth="149.0" text="Modify db" textFill="#4dff00">
+      <Label layoutX="353.0" layoutY="25.0" prefHeight="34.0" prefWidth="180.0" text="Modify database" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <CheckBox fx:id="categoryNameSearchBtn" layoutX="749.0" layoutY="67.0" mnemonicParsing="false" text="By category name" textFill="LIME" />
-      <CheckBox fx:id="costSearchBtn" layoutX="749.0" layoutY="106.0" mnemonicParsing="false" text="By cost" textFill="#00f743" />
+      <CheckBox fx:id="categoryNameSearchBtn" layoutX="749.0" layoutY="67.0" mnemonicParsing="false" text="By category name" textFill="WHITE" />
+      <CheckBox fx:id="costSearchBtn" layoutX="749.0" layoutY="106.0" mnemonicParsing="false" text="By cost" textFill="WHITE" />
       <TextField fx:id="costSearchPredicateField" disable="true" layoutX="900.0" layoutY="99.0" prefHeight="31.0" prefWidth="138.0" promptText="Enter range" style="-fx-background-color: WHITE;" />
-      <Label layoutX="14.0" layoutY="33.0" prefHeight="130.0" prefWidth="317.0" text="Select category" textFill="#2bff00">
+      <Label layoutX="13.0" layoutY="66.0" prefHeight="128.0" prefWidth="317.0" text="Product categories" textFill="WHITE">
          <font>
-            <Font size="37.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <CheckBox fx:id="psCategory" layoutX="14.0" layoutY="550.0" mnemonicParsing="false" text="Power_Supply" textFill="#50ff00" />
-      <CheckBox fx:id="mbCategory" layoutX="14.0" layoutY="500.0" mnemonicParsing="false" text="Motherboard" textFill="#50ff00" />
-      <CheckBox fx:id="cpuCategory" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" text="CPU" textFill="#50ff00" />
-      <CheckBox fx:id="gpuCategory" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" text="GPU" textFill="#50ff00" />
-      <CheckBox fx:id="ramCategory" layoutX="14.0" layoutY="450.0" mnemonicParsing="false" text="RAM" textFill="#50ff00" />
-      <CheckBox fx:id="monitorCategory" layoutX="14.0" layoutY="300.0" mnemonicParsing="false" text="Monitor" textFill="#50ff00" />
-      <CheckBox fx:id="laptopCategory" layoutX="14.0" layoutY="250.0" mnemonicParsing="false" text="Laptop" textFill="#50ff00" />
-      <CheckBox fx:id="computerCategory" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" text="Computer" textFill="#50ff00" />
-      <CheckBox fx:id="selectAllBtn" layoutX="14.0" layoutY="650.0" mnemonicParsing="false" text="SELECT ALL" textFill="LIME" />
-      <Button fx:id="getListButton" layoutX="13.0" layoutY="697.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="130.0" style="-fx-background-color: lime;" text="Get product list">
+      <CheckBox fx:id="psCategory" layoutX="14.0" layoutY="410.0" mnemonicParsing="false" text="Power Supply" textFill="WHITE" />
+      <CheckBox fx:id="mbCategory" layoutX="14.0" layoutY="380.0" mnemonicParsing="false" text="Motherboard" textFill="WHITE" />
+      <CheckBox fx:id="cpuCategory" layoutX="14.0" layoutY="290.0" mnemonicParsing="false" text="CPUs" textFill="WHITE" />
+      <CheckBox fx:id="gpuCategory" layoutX="14.0" layoutY="320.0" mnemonicParsing="false" text="GPU" textFill="WHITE" />
+      <CheckBox fx:id="ramCategory" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" text="RAM" textFill="WHITE" />
+      <CheckBox fx:id="monitorCategory" layoutX="14.0" layoutY="260.0" mnemonicParsing="false" text="Monitors" textFill="WHITE" />
+      <CheckBox fx:id="laptopCategory" layoutX="14.0" layoutY="230.0" mnemonicParsing="false" text="Laptops" textFill="WHITE" />
+      <CheckBox fx:id="computerCategory" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" text="Computers" textFill="WHITE" />
+      <CheckBox fx:id="selectAllBtn" layoutX="14.0" layoutY="470.0" mnemonicParsing="false" text="Select all" textFill="WHITE" />
+      <Button fx:id="getListButton" layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="149.0" style="-fx-background-color: #F39C63;" text="Get product list" textFill="WHITE">
          <font>
-            <Font name="Arial" size="12.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="loadDefaultDataButton" layoutX="536.0" layoutY="71.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Init tables" />
-      <Button fx:id="searchButton" layoutX="749.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: lime;" text="Search">
+      <Button fx:id="loadDefaultDataButton" layoutX="536.0" layoutY="71.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #F39C63;" text="Init tables" textFill="WHITE">
          <font>
-            <Font name="Arial" size="12.0" />
+            <Font name="Arial" size="14.0" />
+         </font></Button>
+      <Button fx:id="searchButton" layoutX="749.0" layoutY="140.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #F39C63;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
          </font>
       </Button>
+      <Label layoutX="1225.0" layoutY="16.0" prefHeight="87.0" prefWidth="561.0" text="Simple computer shop manager" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="36.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

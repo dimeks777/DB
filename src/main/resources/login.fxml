@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0"
             prefWidth="638.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml" fx:controller="computershop.graphics.Controller">
+            xmlns:fx="http://javafx.com/fxml" fx:controller="computershop.graphics.LoginController">
     <children>
         <AnchorPane layoutY="91.0" prefHeight="271.0" prefWidth="638.0" style="-fx-background-color: #fafafa;">
             <children>
